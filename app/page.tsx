@@ -4,6 +4,7 @@ import { supabase } from '@/lib/supabaseClient';
 import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Link from 'next/link';
 
 // 1. Instrument Type Definition
 type Instrument = {
@@ -150,12 +151,12 @@ export default function Home() {
                         <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">Base Tuning</span>
                         <span className="font-bold text-slate-900 text-lg font-mono">{item.tuning_frequency || '440Hz'}</span>
                       </div>
-                      <button className="group/btn flex items-center gap-2 bg-slate-900 hover:bg-amber-500 text-white px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg shadow-slate-200 hover:shadow-amber-200/50 hover:-translate-y-0.5">
+                      <Link href={`/tune/${item.id}`} className="group/btn flex items-center gap-2 bg-slate-900 hover:bg-amber-500 text-white px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg shadow-slate-200 hover:shadow-amber-200/50 hover:-translate-y-0.5">
                         Tune Instrument
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
