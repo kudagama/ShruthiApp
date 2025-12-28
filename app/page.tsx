@@ -122,7 +122,8 @@ export default function Home() {
                         item.name.toLowerCase().includes('bansuri') ? '/instruments/bansuri.png' :
                           item.name.toLowerCase().includes('tabla') ? '/instruments/tabla.png' :
                             item.name.toLowerCase().includes('sitar') ? '/instruments/sitar.png' :
-                              item.image_url
+                              item.name.toLowerCase().includes('violin') ? '/instruments/violin.png' :
+                                item.image_url
                       )}
                       alt={item.name}
                       fill
@@ -146,13 +147,18 @@ export default function Home() {
                       {item.description}
                     </p>
 
-                    <div className="flex items-center justify-between pt-6 border-t border-slate-100 mt-auto">
-                      <div className="flex flex-col">
-                        <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">Base Tuning</span>
-                        <span className="font-bold text-slate-900 text-lg font-mono">{item.tuning_frequency || '440Hz'}</span>
-                      </div>
-                      <Link href={`/tune/${item.id}`} className="group/btn flex items-center gap-2 bg-slate-900 hover:bg-amber-500 text-white px-6 py-3 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg shadow-slate-200 hover:shadow-amber-200/50 hover:-translate-y-0.5">
-                        Tune Instrument
+                    <div className="flex items-center gap-3 pt-6 border-t border-slate-100 mt-auto">
+                      <Link
+                        href={`/instrument/${item.id}`}
+                        className="flex-1 bg-white border border-slate-200 text-slate-700 hover:border-amber-500 hover:text-amber-600 px-4 py-3 rounded-xl text-sm font-bold transition-all text-center"
+                      >
+                        Details
+                      </Link>
+                      <Link
+                        href={`/tune/${item.id}`}
+                        className="flex-[2] group/btn flex items-center justify-center gap-2 bg-slate-900 hover:bg-amber-500 text-white px-4 py-3 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg shadow-slate-200 hover:shadow-amber-200/50 hover:-translate-y-0.5"
+                      >
+                        Tune
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
